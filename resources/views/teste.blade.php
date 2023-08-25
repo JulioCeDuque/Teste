@@ -1,11 +1,13 @@
 <?php
 
 
-$bmw = file_get_contents('https://www.questmultimarcas.com.br/estoque?termo=bmw');
+$html = file_get_contents('https://www.questmultimarcas.com.br/estoque?termo=bmw');
 
-preg_match_all('/<div class="card card-car">(.*?)<img src="(.*?)" \/>(.*?)<\/div>/s', $bmw, $matches);
+// $html = file_get_contents('https://www.questmultimarcas.com.br/estoque');
 
-print_r($matches)
+preg_match_all('/<div class="card card-car">(.*?)<img src="(.*?)" \/>(.*?)<\/div>/s', $html, $matches);
+
+dd($html);
 
 ?>
 

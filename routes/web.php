@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/teste', function () { return view('teste'); });
 
+Route::get('/scrap', [App\Http\Controllers\ScrapController::class,  'scrap'])->name('scrap');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
