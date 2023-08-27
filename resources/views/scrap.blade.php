@@ -12,10 +12,15 @@
         <div class="row">
             <div class="col-md-6 offset-md3 mt-5 wraper">
                 @foreach($data as $key => $value)
+                <form action="" method="GET">
+                    <label>Carro</label>
+                    <input type="text" name="" size="50" placeholder="Carroaqui">
+                    <button>Achaessaporra</button>
+                </form>
                 <div class="card text-center">
                     <h5 class="card-header">{{ $key }}</h5>
                     <div class="card-body">
-                        <p class="card-text">{{ $value }}</p>
+                        <a href="{{ $value }}" class="card-text">Saiba Mais</a>
                     </div>
                 </div>
                 @endforeach

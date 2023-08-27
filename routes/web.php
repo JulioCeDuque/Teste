@@ -21,6 +21,8 @@ Route::get('/teste', function () { return view('teste'); });
 
 Route::get('/scrap', [App\Http\Controllers\ScrapController::class,  'scrap'])->name('scrap');
 
+Route::get('/search', [App\Http\Controllers\SearchController::class,  'search'])->name('search');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

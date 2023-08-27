@@ -11,37 +11,37 @@ class ScrapController extends Controller
     public function scrap(){
 
         $client = new Client();
-        // $url = 'https://www.questmultimarcas.com.br/estoque';
-        // $page = $client->request('GET', $url);
-        $allItems = [];
 
         for ($mais = 1; $mais <=10; $mais++) {
             $url = "https://www.questmultimarcas.com.br/estoque?pagina=$mais";
             $page = $client->request('GET', $url);
             
             $page->filter('.card-car')->each(function ($item) {
-                $this->results[$item->filter('div')->text()] = $item->filter('.car-description')->text();
+                $this->nome[$item->filter('div')->text()] = $item->filter('a')->attr('href');
             });
-    
-            $data = $this->results;
+
+            $data = $this->nome;
+            
         }
-
-        // dd($data);
-
-        // echo "<pre>";
-        // print_r($page);
-
-        // echo $page->filter('.card-car')->text();
-
-        // $page->filter('.card-car')->each(function ($item) {
-        //     $this->results[$item->filter('h3')->text()] = $item->filter('.car-description')->text();
-        // });
-
-        // $data = $this->results;
 
         return view('scrap', compact('data'));
     }
+
+    public function saveItem(Request $request) {
+        
+        $newListItem = new ListItem;
+        $newListItem->name = $request->listItem;
+        $newListItem->is_complete = 0;
+        $newListItem->save();
+
+        return redirect('/');
+    }
+    
 }
 
-
-//https://www.zenrows.com/blog/web-scraping-php#advanced-techniques
+            // for ($dois = 2; $dois <=100; $dois++) {
+            // $page->filter(".results div:nth-child($dois) > div > a")->each(function ($sim) {
+            //     $link = $sim->extract(array('href'));
+            //     // print_r ($link);
+            // });
+            // }
