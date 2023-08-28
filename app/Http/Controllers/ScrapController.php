@@ -26,17 +26,6 @@ class ScrapController extends Controller
 
         return view('scrap', compact('data'));
     }
-
-    public function saveItem(Request $request) {
-        
-        $newListItem = new ListItem;
-        $newListItem->name = $request->listItem;
-        $newListItem->is_complete = 0;
-        $newListItem->save();
-
-        return redirect('/');
-    }
-    
 }
 
             // for ($dois = 2; $dois <=100; $dois++) {

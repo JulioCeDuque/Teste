@@ -4,7 +4,10 @@
     </div>
 
     <div class="mt-8 text-2xl">
-        Welcome to your Jetstream application!
+        <form action="/buscar" method="GET">
+            <input type="text" name="termo" placeholder="Digite sua pesquisa">
+            <button type="submit">Pesquisar</button>
+        </form>
     </div>
 
     <div class="mt-6 text-gray-500">
